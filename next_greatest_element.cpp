@@ -1,4 +1,4 @@
-//https://www.hackerrank.com/contests/second/challenges/next-greater-element/problem
+//https://www.codechef.com/problems/GCDQ
 #include <bits/stdc++.h>
 using namespace std;
 // using namespace std::chrono;
@@ -18,38 +18,26 @@ using namespace std;
 #define each(x,a) for(auto x:a)
 #define sz(x) (ll)(x).size()
 const ll M=(ll)(1e9)+7;
-
-vt<ll> next_greatest_element(vt<ll> v){
-   //Here nge stores index values and -1 for elements in stack that are left at the end
-   ll i;
-   ll n=sz(v);
-   vt<ll> nge(n);
-   stack <ll> st;
-   for(i=0;i<n;i++){
-      while(!st.empty()&&v[i]>v[st.top()]){
-      nge[st.top()]=i;
-      st.pop();
-      }
-      st.push(i);
-   }
-   while(!st.empty()){
-      nge[st.top()]=-1;
-      st.pop();
-   }
-   return nge;
-}
+ll N=(ll)(1e5)+10;
 
 void solve(){
-   ll n,i;
-   cin>>n;
-   vt<ll> a(n);
-   for(i=0;i<n;i++){
+   ll n,i,q;
+   cin>>n>>q;
+   ll a[n+10];
+   ll forward[N],backward[N];
+   forward[0]=backward[n+1]=0;
+   for(i=1;i<=n;i++){
       cin>>a[i];
+      forward[i]=__gcd(forward[i-1],a[i]);
    }
-   vt<ll> nge(n);
-   nge=next_greatest_element(a);
-   for(i=0;i<n;i++){
-      cout<<a[i]<<" "<<(nge[i]==-1 ? -1 : a[nge[i]])<<"\n";
+   for(i=n;i>=1;i--){
+      backward[i]=__gcd(backward[i+1],a[i]);
+   }
+   while(q--){
+      ll l,r;
+      cin>>l>>r;
+      cout<<__gcd(forward[l-1],backward[r+1]);
+      cout<<"\n";
    }
 }
 int main(){
@@ -60,9 +48,9 @@ int main(){
     freopen("op.txt","w",stdout);
     #endif
     FastIO;
-    ll t=1;
+    ll t;
     // ll i=1;
-    //  cin>>t;
+    cin>>t;
     while(t--){
     // cout<<"Case #"<<i<<": ";
     solve();
