@@ -31,7 +31,7 @@ void solve(){
      m.insert(x);
    }
    for(i=0;i<k;i++){
-    auto it=--m.end();//terator pointing to last element of multimap
+    auto it=--m.end();//iterator pointing to last element of multimap
     ll candy=*it;
     sum+=candy;
     m.erase(it);//use iterator to erase as it removes only 1 copy,if value is passed then all copies are deleted
