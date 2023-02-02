@@ -43,7 +43,7 @@ void solve(){
    while(hi-lo>1){
     mid=(hi+lo)/2;
     //predicate function
-    //T T T T T F F F F F F 
+    //T T T T T T F F F F F F F
     if(isWoodSufficient(mid,n,m)){
       lo=mid;
     }
