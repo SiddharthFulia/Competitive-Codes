@@ -68,6 +68,5 @@ int main(){
     return 0;
 }
 /*INPUT
-3
-1 2 3
+2 3
 */
