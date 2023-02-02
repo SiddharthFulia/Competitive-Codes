@@ -1,3 +1,4 @@
+//https://leetcode.com/problems/generate-parentheses/submissions/889828916/
 #include <bits/stdc++.h>
 using namespace std;
 // using namespace std::chrono;
@@ -74,8 +75,5 @@ int main(){
     return 0;
 }
 /*INPUT
-3               
-{[()]}          
-{[(])}          
-{{[[(())]]}}  
+2
 */
