@@ -78,5 +78,6 @@ int main(){
     return 0;
 }
 /*INPUT
-2 3
+4 7
+20 15 10 17
 */
