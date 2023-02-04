@@ -89,5 +89,5 @@ int main(){
     return 0;
 }
 /*INPUT
-100 
+10000000
 */
